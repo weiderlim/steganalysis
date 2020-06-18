@@ -11,8 +11,8 @@ chmod u+x scripts/*
 ### Prepare gcloud instance
 Based on GCP setup guide from [fast.ai](https://course.fast.ai/start_gcp.html).
 ```
-./create_instance.sh
-./ssh_instance.sh
+./scripts/create_instance.sh
+./scripts/ssh_instance.sh
 ```
 
 ### Get the dataset
