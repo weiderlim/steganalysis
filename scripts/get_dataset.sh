@@ -1,4 +1,4 @@
-export KAGGLE_CONFIG_DIR=".."
+export KAGGLE_CONFIG_DIR="."
 
 pip install --upgrade pip
 pip install kaggle==1.5.6
