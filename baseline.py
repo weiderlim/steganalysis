@@ -25,7 +25,7 @@ from modules.train_global_config import TrainGlobalConfig
 
 # RUN PARAMS
 
-DATA_ROOT_PATH = '../input/alaska2-image-steganalysis'
+DATA_ROOT_PATH = './alaska2-image-steganalysis'
 
 # SETUP
 
@@ -60,14 +60,17 @@ def get_valid_transforms():
 
 dataset = []
 for label, kind in enumerate(['Cover', 'JMiPOD', 'JUNIWARD', 'UERD']):
-    for path in glob('../input/alaska2-image-steganalysis/Cover/*.jpg'):
+    for path in glob(os.path.join(DATA_ROOT_PATH, 'Cover/*.jpg')):
         dataset.append({
             'kind': kind,
             'image_name': path.split('/')[-1],
             'label': label
         })
 random.shuffle(dataset)
+print(len(dataset))
 dataset = pd.DataFrame(dataset)
+
+print(dataset.head())
 
 # Split into 5 set, validate on set 0, train on sets 1-4
 gkf = GroupKFold(n_splits=5)
@@ -77,6 +80,7 @@ for fold_number, (train_index, val_index) in enumerate(gkf.split(X=dataset.index
 fold_number = 0
 
 train_dataset = DatasetRetriever(
+    DATA_ROOT_PATH,
     kinds=dataset[dataset['fold'] != fold_number].kind.values,
     image_names=dataset[dataset['fold'] != fold_number].image_name.values,
     labels=dataset[dataset['fold'] != fold_number].label.values,
@@ -84,6 +88,7 @@ train_dataset = DatasetRetriever(
 )
 
 validation_dataset = DatasetRetriever(
+    DATA_ROOT_PATH,
     kinds=dataset[dataset['fold'] == fold_number].kind.values,
     image_names=dataset[dataset['fold'] == fold_number].image_name.values,
     labels=dataset[dataset['fold'] == fold_number].label.values,
