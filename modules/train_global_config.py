@@ -1,3 +1,5 @@
+import torch
+
 class TrainGlobalConfig:
     num_workers = 4
     batch_size = 16 

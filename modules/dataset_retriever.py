@@ -1,3 +1,13 @@
+import cv2
+import numpy as np
+import torch
+from torch.utils.data import Dataset
+
+def onehot(size, target):
+    vec = torch.zeros(size, dtype=torch.float32)
+    vec[target] = 1.
+    return vec
+
 class DatasetRetriever(Dataset):
 
     def __init__(self, kinds, image_names, labels, transforms=None):
