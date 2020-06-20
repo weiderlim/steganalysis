@@ -16,12 +16,12 @@ from skimage import io
 from sklearn.model_selection import GroupKFold
 from torch import nn
 from torch.utils.data import Dataset,DataLoader
-from torch.utils.data.sampler import SequentialSampler, RandomSample
+from torch.utils.data.sampler import SequentialSampler
 
-from dataset_retriever import DatasetRetriever
-from dataset_submission_retriever import DatasetSubmissionRetriever
-from fitter import Fitter
-from train_global_config import TrainGlobalConfig
+from modules.dataset_retriever import DatasetRetriever
+from modules.dataset_submission_retriever import DatasetSubmissionRetriever
+from modules.fitter import Fitter
+from modules.train_global_config import TrainGlobalConfig
 
 # RUN PARAMS
 

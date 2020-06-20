@@ -1,4 +1,5 @@
 import torch
+from torch import nn
 
 class LabelSmoothing(nn.Module):
     def __init__(self, smoothing = 0.05):

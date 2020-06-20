@@ -4,9 +4,9 @@ import torch
 from datetime import datetime
 from glob import glob
 
-from average_meter import AverageMeter
-from label_smoothing import LabelSmoothing
-from rocauc_meter import RocAucMeter
+from modules.average_meter import AverageMeter
+from modules.label_smoothing import LabelSmoothing
+from modules.rocauc_meter import RocAucMeter
 
 class Fitter:
     
