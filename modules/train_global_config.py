@@ -3,7 +3,7 @@ import torch
 class TrainGlobalConfig:
     num_workers = 4
     batch_size = 16 
-    n_epochs = 5 # 25
+    n_epochs = 35
     lr = 0.001
 
     # -------------------
