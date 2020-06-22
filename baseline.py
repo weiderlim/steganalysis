@@ -79,7 +79,7 @@ def run_training(checkpoint=None):
     fitter = Fitter(model=net, device=device, config=TrainGlobalConfig)
     if checkpoint is not None:
         print("Resuming from checkpoint {}".format(checkpoint))
-        fitter.load(f'{fitter.base_dir}/last-checkpoint.bin')
+        fitter.load(checkpoint)
     fitter.fit(train_loader, val_loader)
 
 
@@ -87,8 +87,8 @@ if __name__ == "__main__":
 
     # ARGS
     parser = argparse.ArgumentParser(description="Training")
-    parser.add_argument("-d", "--datapath", type=str, metavar='', default="./alaska2-image-steganalysis", help="Path to root data dir. Default: %(default)s")
-    parser.add_argument("-c", "--checkpoint", type=str, metavar='', help="Resume from checkpoint.")
+    parser.add_argument("-d", "--datapath", type=str, default="./alaska2-image-steganalysis", help="Path to root data dir. Default: %(default)s")
+    parser.add_argument("-c", "--checkpoint", type=str, help="Resume from checkpoint.")
     options = parser.parse_args()
 
     # SETUP
