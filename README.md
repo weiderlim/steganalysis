@@ -32,3 +32,11 @@ tmux kill-session -t ostechnix # Kill session
 tmux attach -t ostechnix # Attach to session
 # Detach from session: Ctrl+b d
 ```
+
+### Restarting in the event of preemption
+The cost of running a preemptible instance is much lower than one without. Follow [guide](https://medium.com/martinomburajr/using-cloud-scheduler-to-resurrect-preempted-virtual-machines-c637c6d7f098) for the general steps to take to activate a Cloud Function and Cloud Scheduler to restart the instance after preemption. 
+
+However, there are some things left out in the guide:
+1. When creating a Cloud Function, make sure to 'Allow Unautenticated Invocations'. If you are worried about security, there is an option to not allow this and give permissions via IAM, but it has not been explored in detail.
+2. For some reason when copy and pasting the URL from the Cloud Function into the Cloud Scheduler, the URL is messed up after setting the Scheduler up. Edit the Scheduler after it is set up and make sure the URL matches the one from the Cloud Function. 
+
