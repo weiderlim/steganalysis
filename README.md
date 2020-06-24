@@ -34,7 +34,7 @@ tmux attach -t ostechnix # Attach to session
 ```
 
 ### Restarting in the event of preemption
-The cost of running a preemptible instance is much lower than one without. Follow [guide] (https://medium.com/martinomburajr/using-cloud-scheduler-to-resurrect-preempted-virtual-machines-c637c6d7f098) for the general steps to take to activate a Cloud Function and Cloud Scheduler to restart the instance after preemption. 
+The cost of running a preemptible instance is much lower than one without. Follow [guide](https://medium.com/martinomburajr/using-cloud-scheduler-to-resurrect-preempted-virtual-machines-c637c6d7f098) for the general steps to take to activate a Cloud Function and Cloud Scheduler to restart the instance after preemption. 
 
 However, there are some things left out in the guide:
 1. When creating a Cloud Function, make sure to 'Allow Unautenticated Invocations'. If you are worried about security, there is an option to not allow this and give permissions via IAM, but it has not been explored in detail.
