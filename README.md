@@ -1,7 +1,5 @@
 # Kaggle Steganalysis Competition 
 
-&nbsp;
-&nbsp;&nbsp;&nbsp;
 ## Setup (First time only) - Local Machine
 
 ### Make scripts executable
@@ -50,6 +48,10 @@ Note: The Cloud Function allows unauthenticated invocations (meaning anyone coul
 ```
 Following commands are to be run in the remote machine. 
 
+&nbsp;
+&nbsp;
+&nbsp;
+
 ## Setup (First time only) - Remote Machine
 
 ### Clone this repo 
@@ -75,6 +77,10 @@ Place your [`kaggle.json`](https://github.com/Kaggle/kaggle-api#api-credentials)
 python baseline.py
 ```
 And the model should start training!
+
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Additional Utility Commands (Local Machine)
 
