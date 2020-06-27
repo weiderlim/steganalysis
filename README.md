@@ -1,5 +1,18 @@
 # Kaggle Steganalysis Competition 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Setup (First time only) - Local Machine
 
 ### Make scripts executable
