@@ -10,9 +10,10 @@ chmod u+x scripts/*
 
 ### Prepare gcloud instance
 Based on GCP setup guide from [fast.ai](https://course.fast.ai/start_gcp.html).
+
+Enter the details of email address (ACCOUNT_NAME), 
 ```bash
-./scripts/create_instance.sh
-./scripts/ssh_instance.sh
+
 ```
 
 ### Get the dataset
