@@ -34,7 +34,7 @@ class Fitter:
         self.log(f'Fitter prepared. Device is {self.device}')
 
     def fit(self, train_loader, validation_loader):
-        for e in range(self.config.n_epochs):
+        while self.epoch < self.config.n_epochs:
             if self.config.verbose:
                 lr = self.optimizer.param_groups[0]['lr']
                 timestamp = datetime.utcnow().isoformat()
