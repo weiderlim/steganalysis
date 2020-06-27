@@ -138,6 +138,7 @@ if __name__ == "__main__":
     # TEST
     net.eval() # Switch model to evaluation/inference mode
     dataset = DatasetSubmissionRetriever(
+        options.datapath,
         image_names=np.array([path.split('/')[-1] for path in glob(os.path.join(options.datapath, 'Test/*.jpg'))]),
         transforms=get_valid_transforms(),
     )
