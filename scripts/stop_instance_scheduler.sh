@@ -13,4 +13,3 @@ echo 'y' | gcloud beta scheduler jobs pause $SCHEDULER_NAME
 
 # the user and project needs to match (allowed permission)
 gcloud compute instances stop $INSTANCE_NAME
-
