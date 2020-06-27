@@ -34,4 +34,5 @@ export URI=$(gcloud functions describe $FUNCTION_NAME --format 'value(httpsTrigg
 gcloud scheduler jobs create http $SCHEDULER_NAME --schedule='*/10 * * * *' --uri=$URI --http-method=GET --time-zone='Asia/Kuala_Lumpur'
 # Select yes for all prompts, choose us-central for region of App Engine if prompted
 
-# 12. Navigate to the Cloud Scheduler page, click 'RUN NOW' on the scheduler in order to activate it.
+# 12. Start the scheduler
+gcloud beta scheduler jobs resume $SCHEDULER_NAME
