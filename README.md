@@ -83,7 +83,7 @@ Command to stop both the instance and the scheduler to prevent further charging 
 ```
 
 ### Restarting all processes
-Command to stop the instance and the scheduler.
+Command to restart the instance and the scheduler.
 ```bash
 . /scripts/start_instance_scheduler.sh
 ```
