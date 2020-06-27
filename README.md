@@ -2,7 +2,7 @@
 
 ## Setup (First time only) - Local Machine
 
-### Make scripts executable
+#### Make scripts executable
 ```bash
 chmod u+x scripts/*
 ```
@@ -42,15 +42,11 @@ Note: The Cloud Function allows unauthenticated invocations (meaning anyone coul
 . /scripts/setup_part2.sh
 ```
 
-### SSH into the remote machine (if not already SSH-ed in)
+#### SSH into the remote machine (if not already SSH-ed in)
 ```bash
 . /scripts/ssh_instance.sh
 ```
 Following commands are to be run in the remote machine. 
-
-&nbsp;
-&nbsp;
-&nbsp;
 
 ## Setup (First time only) - Remote Machine
 
@@ -77,10 +73,6 @@ Place your [`kaggle.json`](https://github.com/Kaggle/kaggle-api#api-credentials)
 python baseline.py
 ```
 And the model should start training!
-
-&nbsp;
-&nbsp;
-&nbsp;
 
 ## Additional Utility Commands (Local Machine)
 
