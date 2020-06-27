@@ -1,5 +1,4 @@
-# steganalysis
-Kaggle Steganalysis Competition 
+# Kaggle Steganalysis Competition 
 
 ## Setup (First time only) - Local Machine
 
