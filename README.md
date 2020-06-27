@@ -103,5 +103,6 @@ tmux attach -t ostechnix # Attach to session
 
 ### Killing the instance
 If you don't want your account to be charged when your credit is up, this command kills the instance.
+```bash
 . /scripts/kill_instance.sh
-
+```
