@@ -34,7 +34,7 @@ export URI=$(gcloud functions describe $FUNCTION_NAME --format 'value(httpsTrigg
 gcloud scheduler jobs create http $SCHEDULER_NAME --schedule='*/10 * * * *' --uri=$URI --http-method=GET --time-zone='Asia/Kuala_Lumpur'
 # Select yes for all prompts, choose us-central for region of App Engine if prompted
 
-# 12. Start the scheduler
+# 12. Start the scheduler and the instance
 gcloud beta scheduler jobs resume $SCHEDULER_NAME
 
 # 13. SSH into the cloud machine, and add new cron job to run training every time the machine starts.

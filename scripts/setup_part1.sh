@@ -1,9 +1,9 @@
-# Part 1 of setup, break in order to adjust GPU quotas after creating project. Make sure to run both in the same bash instance in order to not lose env variables needed in part 2.
+# Part 1 of setup, seperated in order to adjust GPU quotas after creating project. 
 
 # 1. Go to GCP console with your new account, Accept terms of services, activate $300 credit, enter personal and credit card details. 
 
 # 2. See which accounts are active from multiple google accounts, use these for setting up and navigating between several accounts and projects
-gcloud auth list
+# gcloud auth list
 
 # 3. Log in and authenticate Google SDK for your account when prompted
 gcloud auth login $ACCOUNT_NAME
