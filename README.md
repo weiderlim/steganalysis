@@ -2,7 +2,7 @@
 
 ## Setup (First time only) - Local Machine
 
-#### Make scripts executable
+### Make scripts executable
 ```bash
 chmod u+x scripts/*
 ```
@@ -42,7 +42,7 @@ Note: The Cloud Function allows unauthenticated invocations (meaning anyone coul
 . /scripts/setup_part2.sh
 ```
 
-#### SSH into the remote machine (if not already SSH-ed in)
+### SSH into the remote machine (if not already SSH-ed in)
 ```bash
 . /scripts/ssh_instance.sh
 ```
