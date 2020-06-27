@@ -8,11 +8,6 @@ Kaggle Steganalysis Competition
 chmod u+x scripts/*
 ```
 
-### Install dependencies
-```bash
-. /scripts/provision.sh
-```
-
 ### Prepare gcloud instance
 Go to the GCP console after setting up your account (or using a current one), accept terms of services, activate $300 credit when prompted at the top of your screen, enter personal and credit card details. 
 
@@ -63,6 +58,11 @@ git clone https://github.com/weiderlim/steganalysis.git
 cd /steganalysis/
 ```
 
+### Install dependencies
+```bash
+. /scripts/provision.sh
+```
+
 ### Get the dataset
 Place your [`kaggle.json`](https://github.com/Kaggle/kaggle-api#api-credentials) into the top-level of this repo, then run:
 ```bash
@@ -75,15 +75,15 @@ python baseline.py
 ```
 And the model should start training!
 
-## Additional Utility Commands
+## Additional Utility Commands (Local Machine)
 
-### Stopping all processes (Local Machine) 
+### Stopping all processes
 Command to stop both the instance and the scheduler to prevent further charging of credits.
 ```bash
 . /scripts/stop_instance_scheduler.sh
 ```
 
-### Restarting all processes (Local Machine) 
+### Restarting all processes
 Command to stop the instance and the scheduler.
 ```bash
 . /scripts/start_instance_scheduler.sh
@@ -100,4 +100,8 @@ tmux kill-session -t ostechnix # Kill session
 tmux attach -t ostechnix # Attach to session
 # Detach from session: Ctrl+b d
 ```
+
+### Killing the instance
+If you don't want your account to be charged when your credit is up, this command kills the instance.
+. /scripts/kill_instance.sh
 
