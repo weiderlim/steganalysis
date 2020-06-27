@@ -36,3 +36,9 @@ gcloud scheduler jobs create http $SCHEDULER_NAME --schedule='*/10 * * * *' --ur
 
 # 12. Start the scheduler
 gcloud beta scheduler jobs resume $SCHEDULER_NAME
+
+# 13. SSH into the cloud machine, and add new cron job to run training every time the machine starts.
+# https://stackoverflow.com/a/29247942
+./ssh_instance.sh
+crontab -e
+@reboot /home/jupyter/repos/steganalysis/scripts/vm_startup_script.sh
