@@ -19,8 +19,8 @@ You can edit the default names of your project name, service account, cloud func
 Creating the project, service account, enabling billing and API services in the project.
 
 ```bash
-. /scripts/source_env.sh
-. /scripts/setup_part1.sh
+./scripts/source_env.sh
+./scripts/setup_part1.sh
 ```
 ### Adjust your GPU quotas.
 Go to Google Cloud Quotas Page. Navigate to the project you just created (top left)
@@ -39,12 +39,12 @@ Creating VM instance, Cloud Function and Scheduler, and scripts to continue trai
 Note: The Cloud Function allows unauthenticated invocations (meaning anyone could call the function). If you are worried about security, there is an option to not allow this and give permissions via IAM, but it has not been explored in detail.
 
 ```bash
-. /scripts/setup_part2.sh
+./scripts/setup_part2.sh
 ```
 
 ### SSH into the remote machine (if not already SSH-ed in)
 ```bash
-. /scripts/ssh_instance.sh
+./scripts/ssh_instance.sh
 ```
 Following commands are to be run in the remote machine. 
 
@@ -59,13 +59,13 @@ cd /steganalysis/
 
 ### Install dependencies
 ```bash
-. /scripts/provision.sh
+./scripts/provision.sh
 ```
 
 ### Get the dataset
 Place your [`kaggle.json`](https://github.com/Kaggle/kaggle-api#api-credentials) into the top-level of this repo, then run:
 ```bash
-. /scripts/get_dataset.sh
+./scripts/get_dataset.sh
 ```
 
 ### Running the model
@@ -79,13 +79,13 @@ And the model should start training!
 ### Stopping all processes
 Command to stop both the instance and the scheduler to prevent further charging of credits.
 ```bash
-. /scripts/stop_instance_scheduler.sh
+./scripts/stop_instance_scheduler.sh
 ```
 
 ### Restarting all processes
 Command to restart the instance and the scheduler.
 ```bash
-. /scripts/start_instance_scheduler.sh
+./scripts/start_instance_scheduler.sh
 ```
 
 ### Remote sessions
@@ -103,5 +103,5 @@ tmux attach -t ostechnix # Attach to session
 ### Killing the instance
 If you don't want your account to be charged when your credit is up, this command kills the instance.
 ```bash
-. /scripts/kill_instance.sh
+./scripts/kill_instance.sh
 ```
