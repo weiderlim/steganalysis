@@ -23,13 +23,13 @@ Creating the project, service account, enabling billing and API services in the 
 ./scripts/setup_part1.sh
 ```
 ### Adjust your GPU quotas.
-Go to Google Cloud Quotas Page. Navigate to the project you just created (top left)
+Go to Google Cloud Platform. If you signed up with a free tier account, you first need to upgrade to a paid account; do so by clicking the “Upgrade account” button at the top right of the page. Be careful as you will be charged from here on out if you exceed the quota limit.
 
-If you signed up with a free tier account, you first need to upgrade to a paid account; do so by clicking the “Upgrade account” button at the top right of the page. Be careful as you will be charged from here on out if you exceed the quota limit.
+Navigate to the project you just created (top left). In the searchbar go to 'IAM and Security' and look for the Quotas tab. 
 
 In the “Metrics” dropdown, select “GPUs (all regions)” and under “Locations” select “Global” (or “All locations”).
 
-Click edit quotas and select the quota to edit (GPUs All Regions). Set the new quota limit to 1 or more. Your request may require confirmation, which Google claims typically takes two business days to get.
+Click 'Edit quotas' and select the quota to edit (GPUs All Regions). Set the new quota limit to 1 or more. Your request may require confirmation, which Google claims typically takes two business days to get.
 
 Not confirmed, but Google may reject your application if you use the same credit card details for different requests, even with different accounts. 
 
