@@ -22,7 +22,7 @@ Creating the project, service account, enabling billing and API services in the 
 ./scripts/source_env.sh
 ./scripts/setup_part1.sh
 ```
-### Adjust your GPU quotas.
+### Adjust your GPU quotas
 Go to Google Cloud Quotas Page. Navigate to the project you just created (top left)
 
 If you signed up with a free tier account, you first need to upgrade to a paid account; do so by clicking the “Upgrade account” button at the top right of the page. Be careful as you will be charged from here on out if you exceed the quota limit.
@@ -50,8 +50,9 @@ Following commands are to be run in the remote machine.
 
 ## Setup (First time only) - Remote Machine
 
-### Clone this repo 
+### Clone this repo into a 'repos/' folder
 ```bash
+mkdir repos
 cd /home/jupyter/repos/
 git clone https://github.com/weiderlim/steganalysis.git
 cd /steganalysis/
