@@ -108,7 +108,7 @@ If you don't want your account to be charged when your credit is up, this comman
 ```
 
 ### Creating another account to request for more GPU's. (Requires another billing account)  
-Navigate to this [link](https://cloud.google.com/billing/docs/how-to/payment-methods), and click the 'Manage Billing Accounts' button. Enter a new account.
+Navigate to this [link](https://cloud.google.com/billing/docs/how-to/payment-methods), and click the 'Manage Billing Accounts' button. Register a new billing account. Then link the new billing account to the project, as shown below. 
 ```bash
 # checking billing accounts
 gcloud alpha billing accounts list
