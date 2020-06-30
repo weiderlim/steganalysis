@@ -106,3 +106,15 @@ If you don't want your account to be charged when your credit is up, this comman
 ```bash
 ./scripts/kill_instance.sh
 ```
+
+### Creating another account to request for more GPU's. (Requires another billing account)  
+Navigate to this [link](https://cloud.google.com/billing/docs/how-to/payment-methods), and click the 'Manage Billing Accounts' button. Enter a new account.
+```bash
+# checking billing accounts
+gcloud alpha billing accounts list
+# export the env variable ACCOUNT_ID, or any other method to get the account id before linking the new billing account to the new project. 
+export ACCOUNT_ID=$(gcloud alpha billing accounts list --format 'value(ACCOUNT_ID)')
+gcloud alpha billing projects link $PROJECT_ID --billing-account $ACCOUNT_ID
+```
+
+
