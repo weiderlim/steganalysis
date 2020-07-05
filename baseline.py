@@ -56,7 +56,7 @@ def get_net():
     net._fc = nn.Linear(in_features=1408, out_features=4, bias=True)
     return net
 
-def run_training(checkpoint=None):
+def run_training(fitter):
     device = torch.device('cuda:0')
 
     train_loader = torch.utils.data.DataLoader(
@@ -75,11 +75,6 @@ def run_training(checkpoint=None):
         sampler=SequentialSampler(validation_dataset),
         pin_memory=False,
     )
-
-    fitter = Fitter(model=net, device=device, config=TrainGlobalConfig)
-    if checkpoint is not None:
-        print("Resuming from checkpoint {}".format(checkpoint))
-        fitter.load(checkpoint)
     fitter.fit(train_loader, val_loader)
 
 
@@ -89,6 +84,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Training")
     parser.add_argument("-d", "--datapath", type=str, default="./alaska2-image-steganalysis", help="Path to root data dir. Default: %(default)s")
     parser.add_argument("-c", "--checkpoint", type=str, help="Resume from checkpoint.")
+    parser.add_argument("-s", "--skip_training", action='store_true', help="Skip training and evaluate test set.")
     options = parser.parse_args()
 
     # SETUP
@@ -128,12 +124,14 @@ if __name__ == "__main__":
 
     # TRAINING
     net = get_net().cuda()
+    fitter = Fitter(model=net, device=device, config=TrainGlobalConfig)
     if options.checkpoint is not None:
         # checkpoint = torch.load('../input/alaska2-public-baseline/best-checkpoint-033epoch.bin')
         # net.load_state_dict(checkpoint['model_state_dict'])
-        run_training(checkpoint=options.checkpoint)
-    else:
-        run_training()
+        print("Resuming from checkpoint {}".format(options.checkpoint))
+        fitter.load(options.checkpoint)
+    if not options.skip_training:
+        run_training(fitter)
 
     # TEST
     net.eval() # Switch model to evaluation/inference mode
