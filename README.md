@@ -22,6 +22,7 @@ Creating the project, service account, enabling billing and API services in the 
 ./scripts/source_env.sh
 ./scripts/setup_part1.sh
 ```
+
 ### Adjust your GPU quotas.
 Go to Google Cloud Platform. If you signed up with a free tier account, you first need to upgrade to a paid account; do so by clicking the “Upgrade account” button at the top right of the page. Be careful as you will be charged from here on out if you exceed the quota limit.
 
