@@ -57,8 +57,6 @@ def get_net():
     return net
 
 def run_training(fitter):
-    device = torch.device('cuda:0')
-
     train_loader = torch.utils.data.DataLoader(
         train_dataset,
         sampler=BalanceClassSampler(labels=train_dataset.get_labels(), mode="downsampling"),
@@ -76,7 +74,6 @@ def run_training(fitter):
         pin_memory=False,
     )
     fitter.fit(train_loader, val_loader)
-
 
 if __name__ == "__main__":
 
@@ -124,6 +121,7 @@ if __name__ == "__main__":
 
     # TRAINING
     net = get_net().cuda()
+    device = torch.device('cuda:0')
     fitter = Fitter(model=net, device=device, config=TrainGlobalConfig)
     if options.checkpoint is not None:
         # checkpoint = torch.load('../input/alaska2-public-baseline/best-checkpoint-033epoch.bin')
