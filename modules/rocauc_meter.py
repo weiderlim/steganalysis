@@ -1,6 +1,6 @@
 import numpy as np
+import torch
 from torch import nn
-
 from sklearn import metrics
 
 def alaska_weighted_auc(y_true, y_valid):
@@ -49,8 +49,8 @@ class RocAucMeter(object):
         self.score = 0
 
     def update(self, y_true, y_pred):
-        y_true = y_true.cpu().numpy().argmax(axis=1).clip(min=0, max=1).astype(int)
-        y_pred = 1 - nn.functional.softmax(y_pred, dim=1).data.cpu().numpy()[:,0]
+        y_true = y_true.cpu().numpy().astype(int)
+        y_pred = torch.sigmoid(y_pred).data.cpu().numpy().flatten()
         self.y_true = np.hstack((self.y_true, y_true))
         self.y_pred = np.hstack((self.y_pred, y_pred))
         self.score = alaska_weighted_auc(self.y_true, self.y_pred)
