@@ -71,6 +71,7 @@ class Fitter:
             if self.config.verbose:
                 if step % self.config.verbose_step == 0:
                     print(
+                        f'Epoch: {self.epoch}, ' + \
                         f'Val Step {step}/{len(val_loader)}, ' + \
                         f'summary_loss: {summary_loss.avg:.5f}, final_score: {final_scores.avg:.5f}, ' + \
                         f'time: {(time.time() - t):.5f}', end='\r'
@@ -95,6 +96,7 @@ class Fitter:
             if self.config.verbose:
                 if step % self.config.verbose_step == 0:
                     print(
+                        f'Epoch: {self.epoch}, ' + \
                         f'Train Step {step}/{len(train_loader)}, ' + \
                         f'summary_loss: {summary_loss.avg:.5f}, final_score: {final_scores.avg:.5f}, ' + \
                         f'time: {(time.time() - t):.5f}', end='\r'
