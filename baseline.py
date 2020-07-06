@@ -53,7 +53,7 @@ def get_valid_transforms():
 
 def get_net():
     net = EfficientNet.from_pretrained('efficientnet-b2')
-    net._fc = nn.Linear(in_features=1408, out_features=4, bias=True)
+    net._fc = nn.Linear(in_features=1408, out_features=1, bias=True)
     return net
 
 def run_training(fitter):
@@ -88,9 +88,13 @@ if __name__ == "__main__":
     SEED = 42
     seed_everything(SEED)
 
+    CLASS_ONE = ['Cover']
+    CLASS_ZERO = ['JMiPOD', 'JUNIWARD', 'UERD']
+
     # LOAD DATA
     dataset = []
-    for label, kind in enumerate(['Cover', 'JMiPOD', 'JUNIWARD', 'UERD']):
+    for kind in ['Cover', 'JMiPOD', 'JUNIWARD', 'UERD']:
+        label = 1 if kind in CLASS_ONE else 0
         for path in glob(os.path.join(options.datapath, 'Cover/*.jpg')):
             dataset.append({
                 'kind': kind,
@@ -149,10 +153,8 @@ if __name__ == "__main__":
     for step, (image_names, images) in enumerate(data_loader):
         print(step, end='\r')
         
-        y_pred = net(images.cuda()) # 4-class classifcation: [5, 2, 4, 12]
-        one_hot_classification = nn.functional.softmax(y_pred, dim=1).data.cpu().numpy() # [0.2, 0.05, 0.015, 0.8]
-        prob_is_cover = one_hot_classification[:,0]
-        y_pred = 1 - prob_is_cover
+        y_pred = net(images.cuda()) # Scalar output: 134
+        y_pred = nn.functional.sigmoid(y_pred).data.cpu().numpy() # Normalize to prob between 0-1
         
         result['Id'].extend(image_names)
         result['Label'].extend(y_pred)
