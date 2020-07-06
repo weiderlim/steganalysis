@@ -3,3 +3,5 @@
 **/alaska2-image-steganalysis/
 **useful_commands.sh 
 **kill_instance.sh
+**/.ipynb_checkpoints
+**/model_output
