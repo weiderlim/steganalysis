@@ -1,10 +1,10 @@
 import torch
 
 class TrainGlobalConfig:
-    num_workers = 4
-    batch_size = 16 
-    n_epochs = 70
-    lr = 0.001
+    num_workers = 6
+    batch_size = 16
+    n_epochs = 60
+    lr = 0.005
 
     # -------------------
     verbose = True
@@ -27,13 +27,13 @@ class TrainGlobalConfig:
     SchedulerClass = torch.optim.lr_scheduler.ReduceLROnPlateau
     scheduler_params = dict(
         mode='min',
-        factor=0.5,
+        factor=0.1,
         patience=1,
         verbose=False, 
         threshold=0.0001,
         threshold_mode='abs',
         cooldown=0, 
-        min_lr=1e-8,
+        min_lr=0,
         eps=1e-08
     )
     # --------------------
