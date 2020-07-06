@@ -154,7 +154,7 @@ if __name__ == "__main__":
         print(step, end='\r')
         
         y_pred = net(images.cuda()) # Scalar output: 134
-        y_pred = nn.functional.sigmoid(y_pred).data.cpu().numpy() # Normalize to prob between 0-1
+        y_pred = torch.sigmoid(y_pred).data.cpu().numpy() # Normalize to prob between 0-1
         
         result['Id'].extend(image_names)
         result['Label'].extend(y_pred)

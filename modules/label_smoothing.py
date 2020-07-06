@@ -11,7 +11,7 @@ class LabelSmoothing(nn.Module):
         if self.training:
             x = x.float()
             target = target.float()
-            logprobs = torch.log(torch.nn.functional.sigmoid(x))
+            logprobs = torch.log(torch.sigmoid(x))
 
             nll_loss = -logprobs * target
             nll_loss = nll_loss.sum(-1)
