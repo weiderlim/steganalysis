@@ -5,7 +5,6 @@ from datetime import datetime
 from glob import glob
 
 from modules.average_meter import AverageMeter
-from modules.label_smoothing import LabelSmoothing
 from modules.rocauc_meter import RocAucMeter
 
 class Fitter:
@@ -30,7 +29,7 @@ class Fitter:
 
         self.optimizer = torch.optim.AdamW(self.model.parameters(), lr=config.lr)
         self.scheduler = config.SchedulerClass(self.optimizer, **config.scheduler_params)
-        self.criterion = LabelSmoothing().to(self.device)
+        self.criterion = torch.nn.BCEWithLogitsLoss().to(self.device)
         self.log(f'Fitter prepared. Device is {self.device}')
 
     def fit(self, train_loader, validation_loader):
@@ -81,7 +80,7 @@ class Fitter:
                 batch_size = images.shape[0]
                 images = images.to(self.device).float()
                 outputs = self.model(images)
-                loss = self.criterion(outputs, targets)
+                loss = self.criterion(torch.flatten(outputs), targets)
                 final_scores.update(targets, outputs)
                 summary_loss.update(loss.detach().item(), batch_size)
 
@@ -108,7 +107,7 @@ class Fitter:
 
             self.optimizer.zero_grad()
             outputs = self.model(images)
-            loss = self.criterion(outputs, targets)
+            loss = self.criterion(torch.flatten(outputs), targets)
             loss.backward()
             
             final_scores.update(targets, outputs)
