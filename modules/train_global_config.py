@@ -4,7 +4,7 @@ class TrainGlobalConfig:
     num_workers = 4
     batch_size = 16 
     n_epochs = 70
-    lr = 0.001
+    lr = 0.0005
 
     # -------------------
     verbose = True
