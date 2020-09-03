@@ -22,6 +22,8 @@ Creating the project, service account, enabling billing and API services in the 
 ./scripts/source_env.sh
 ./scripts/setup_part1.sh
 ```
+It is imperative to run setup_part1 here first to enable all the Compute Engine API. Without this you will not be able to see GPU options in the next step. 
+
 ### Adjust your GPU quotas
 Go to Google Cloud Quotas Page. Navigate to the project you just created (top left). 
 
